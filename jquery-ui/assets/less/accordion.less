@@ -1,0 +1,33 @@
+.ui-accordion {
+
+	.panel();
+	.panel-default();
+
+	overflow: hidden;
+	margin: 0;
+
+	// Header
+	.ui-accordion-header {
+
+		.panel-heading();
+
+		padding: 10px 15px;
+		margin: 0 0 -1px;
+		border-width: 1px 0;
+
+		&:first-child {
+			border-top-width: 0;
+		}
+
+	}
+
+	// Content
+	.ui-accordion-content {
+
+		.panel-body();
+
+		border-width: 0;
+
+	}
+
+}

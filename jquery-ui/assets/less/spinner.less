@@ -1,0 +1,90 @@
+.ui-spinner {
+
+	.input-group();
+
+	position: relative;
+	height: auto !important;
+	display: block;
+	border-width: 0;
+	padding: 0 34px;
+
+	// Input
+	.ui-spinner-input {
+
+		position: relative;
+		z-index: 1;
+		border-radius: 0;
+
+		// Remove native spinners
+		-moz-appearance: textfield;
+
+		&::-webkit-inner-spin-button, 
+		&::-webkit-outer-spin-button {
+			-webkit-appearance: none;
+			margin: 0;
+		}
+
+	}
+
+	// Buttons
+	.ui-spinner-button {
+
+		.btn();
+		.btn-default(); 
+		.input-group-addon();
+
+		text-align: center;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		padding-left: 0;
+		padding-right: 0;
+		width: 35px;
+
+		// Icons
+		.ui-icon {
+
+			.fa();
+
+			display: inline-block;
+			width: 16px;
+			height: 16px;
+			overflow: hidden;
+			line-height: 22px;
+
+			&:before {
+				display: inline-block;
+				width: 16px;
+			}
+
+		}
+
+		// Up
+		&.ui-spinner-up {
+
+			right: 0;
+			border-radius: 0 @input-border-radius @input-border-radius 0 !important;
+
+			// Icon
+			.ui-icon:before {
+				content: '\f067';
+			}
+
+		}
+
+		// Down
+		&.ui-spinner-down {
+
+			left: 0;
+			border-radius: @input-border-radius 0 0 @input-border-radius !important;
+
+			// Icon
+			.ui-icon:before {
+				content: '\f068';
+			}
+
+		}
+
+	}
+
+}

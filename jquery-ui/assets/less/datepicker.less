@@ -1,0 +1,138 @@
+.ui-datepicker {
+
+	background: #fff;
+	width: 18em;
+	display: none;
+
+	// Header
+	.ui-datepicker-header {
+
+		.panel-heading();
+
+		text-align: center;
+		position: relative;
+
+		// Title
+		.ui-datepicker-title {
+			font-weight: bold;
+		}
+
+	}
+
+	// Previous and next
+	.ui-datepicker-prev,
+	.ui-datepicker-next {
+
+		.btn();
+		.btn-default();
+		.btn-sm();
+
+		position: absolute;
+		top: 4px;
+
+		// Icons
+		.ui-icon {
+
+			.fa();
+
+			text-align: center;
+			width: 16px;
+			height: 16px;
+			overflow: hidden;
+
+			&:before {
+				display: inline-block;
+				line-height: 22px;
+				width: 16px;			
+			}
+
+		}
+
+	}
+
+	// Previous
+	.ui-datepicker-prev {
+
+		left: 4px;
+
+		.ui-icon:before {
+			content: '\f104';
+		}
+
+	}
+
+	// Next
+	.ui-datepicker-next {
+
+		right: 4px;
+
+		.ui-icon:before {
+			content: '\f105';
+		}
+
+	}
+
+
+	// Table
+	table {
+
+		.table();
+		margin: 0;
+
+		thead > tr > th,
+		tbody > tr > td {
+			padding: 1px;
+			border: 0;
+		}
+		thead > tr > th {
+			text-align: center;
+			font-sie: 13px;
+			padding: 10px 0;
+		}
+
+		a {
+
+			display: block;
+			text-align: right;
+			padding: 5px;
+
+			// States
+			&.ui-state-highlight {
+
+				background: @gray-lighter;
+				color: @gray-dark;
+				border-color: darken( @gray-lighter, 20% );
+
+				&:hover {
+					border-color: @brand-primary;
+				}
+
+			}
+
+			&:hover,
+			&.ui-state-hover {
+				text-decoration: none;
+			}
+
+			&.ui-state-active {
+				background: @brand-primary;
+				color: #fff;
+				border-color: @brand-primary;
+			}
+
+		}
+
+		// States
+		.ui-state-disabled {
+
+			a {
+				color: #777;
+				cursor: default;
+				border-color: #fff;
+			}
+
+		}
+
+	}
+
+}

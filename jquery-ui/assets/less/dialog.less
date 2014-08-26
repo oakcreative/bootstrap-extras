@@ -1,0 +1,71 @@
+.ui-dialog {
+
+	.modal-content();
+
+	overflow: hidden;
+	z-index: 1051;
+
+	// Header
+	.ui-dialog-titlebar {
+
+		.modal-header();
+
+	}
+
+	// Title
+	.ui-dialog-title {
+
+		.h3();
+		.modal-title();
+
+	}
+
+	// Close
+	.ui-dialog-titlebar-close {
+
+		.close();
+		.box-shadow(none);
+
+		background: none;
+		padding: 0;
+		margin: 8px 0;
+		border-width: 0;
+
+		&:before {
+			content: '\00d7';
+		}
+
+		.ui-button-text {
+			display: none;
+		}
+
+	}
+
+	// Content
+	.ui-dialog-content {
+
+		.modal-body();
+
+		border-width: 0;
+
+	}
+
+	// Footer
+	.ui-dialog-buttonpane {
+
+		.modal-footer();
+
+		border-width: 1px 0 0;
+
+		// Buttons
+		.ui-button,
+		button {
+
+			.btn();
+			.btn-default();
+
+		}
+
+	}
+
+}

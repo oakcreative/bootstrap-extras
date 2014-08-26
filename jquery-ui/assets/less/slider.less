@@ -1,0 +1,92 @@
+.ui-slider {
+
+	position: relative;
+	border-radius: 2px;
+
+	.ui-slider-handle,
+	.ui-slider-range {
+		position: absolute;
+		display: block;
+		z-index: 1;
+	}
+
+	// Handle
+	.ui-slider-handle {
+
+		z-index: 2;
+		width: 1.5em;
+		height: 1.5em;
+		cursor: default;
+		border-color: @panel-inner-border;
+		border-radius: 100%;
+
+		&.ui-state-hover {
+			border-color: @brand-primary;
+		}
+
+	}
+
+	// Range
+	.ui-slider-range {
+		font-size: .7em;
+	}
+
+	// For IE8 - See #6727
+	&.ui-state-disabled .ui-slider-handle,
+	&.ui-state-disabled .ui-slider-range {
+		filter: inherit;
+	}
+
+	// Horizontal
+	&.ui-slider-horizontal {
+
+		height: .8em;
+
+		// Handle
+		.ui-slider-handle {
+			top: -.375em;
+			margin-left: -.75em;
+		}
+
+		// Range
+		.ui-slider-range {
+			top: 0;
+			height: 100%;
+		}
+		.ui-slider-range-min {
+			left: 0;
+		}
+		.ui-slider-range-max {
+			right: 0;
+		}
+
+	}
+
+	// Vertical
+	&.ui-slider-vertical {
+
+		width: .8em;
+		height: 100px;
+
+		// Handle
+		.ui-slider-handle {
+			left: -.3em;
+			margin-left: 0;
+			margin-bottom: -.75em;
+		}
+
+		// Range
+		.ui-slider-range {
+			left: 0;
+			width: 100%;
+		}
+		.ui-slider-range-min {
+			bottom: 0;
+		}
+		.ui-slider-range-max {
+			top: 0;
+		}
+
+	}
+
+}
