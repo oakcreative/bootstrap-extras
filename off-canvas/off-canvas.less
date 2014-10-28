@@ -10,19 +10,31 @@
 /* Variables */
 @nav-transition-type  : ease-in-out;
 @nav-transition-speed : 0.3s;
-@nav-background-color : rgba(68, 68, 68, 1);
+@nav-background-color : rgba(77, 184, 214, 1);
 @nav-width            : auto;
 @nav-min-width        : 200px;
 @nav-max-width        : 60%;
 
 /* -- Overwrite Bootstrap Rules -- */
-.navbar > .container {
-  padding:0;
+.navbar {
+  position: static;
+  & > .container {
+    padding:0;
+    position:static;
+  }
+  &.navbar-default ul > li > a {
+    color:contrast(@nav-background-color)
+  }
 }
 
 .navbar-nav > li {
   float:none;
   text-align: left;
+}
+.navbar-nav > li > a {
+  display:block;
+  height:44px;
+  border-bottom:solid 1px darken(@nav-background-color, 10%)
 }
 
 /* -- Non-JS Toggle - See http://css-tricks.com/the-checkbox-hack/ -- */
@@ -56,17 +68,18 @@
     margin:0;
     padding-top:44px;
     background:@nav-background-color;
-    box-shadow: inset -10px 0px 5px -5px darken(@nav-background-color, 15%);
-
-    li a {
-      color:contrast(@nav-background-color);
-    }
   }
 
   & ~ .navbar-toggle-label {
     cursor:pointer;
     font-size:2.125em; /* 34px to enable 44px touch target */
-    line-height:2.75em; /* 44px touch target */
+    line-height:1em; /* 44px touch target */
+    width:44px;
+    
+    &:before {
+      font-family:FontAwesome;
+      content: '\f0c9';
+    }
   }
 
   &:checked {
@@ -76,6 +89,9 @@
     }
 
     & ~ .navbar-toggle-label:before {
+      font-family:FontAwesome;
+      content: '\f00d';
+      color:contrast(@nav-background-color);
       position:relative;
       z-index:2;   
     }
@@ -83,23 +99,35 @@
 }
 
 /* Devices (768px and up) */
-@media (min-width: @screen-sm-min) {
+@media (min-width: 768px) {
   .container {
     position:relative;
   }
-  .nav-toggle-label {
+  .navbar-toggle-label {
     display:none;
   }
-  ul.navbar-nav  {
-    display:block;
-  }
-  .navbar-nav > li {
+  .navbar-brand {
     float:left;
   }
-  .nav-toggle ~ ul {
+  .navbar {
+    ul.navbar-nav  {
+      display:block;
+      background:none;
+      float:right;
+      li {
+        float:left;
+        a {
+          border:none;
+          color:inherit;
+        }
+      }
+    }
+  }
+  .navbar-toggle ~ ul {
     transform: translate3d(0,0,0);
     box-shadow: none;
     position:static;
     padding-top:0;
+    float:left;
   }
 }
