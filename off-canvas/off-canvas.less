@@ -1,0 +1,105 @@
+/*
+  * Create a Off-Canvas Navigation Drawer for Bootstrap
+  * Mobile First
+  * Uses transforms instead of absolute positioning to avoid Paint Storms
+  * Author  : Jodie Doubleday
+  * Twitter : @jodiedoubleday
+*/
+
+
+/* Variables */
+@nav-transition-type  : ease-in-out;
+@nav-transition-speed : 0.3s;
+@nav-background-color : rgba(68, 68, 68, 1);
+@nav-width            : auto;
+@nav-min-width        : 200px;
+@nav-max-width        : 60%;
+
+/* -- Overwrite Bootstrap Rules -- */
+.navbar > .container {
+  padding:0;
+}
+
+.navbar-nav > li {
+  float:none;
+  text-align: left;
+}
+
+/* -- Non-JS Toggle - See http://css-tricks.com/the-checkbox-hack/ -- */
+.navbar-toggle, ul.navbar-nav {
+  display:none;
+}
+ 
+.navbar-toggle-label {
+  display:block;
+  font-weight:300;
+  float:left;
+  margin:0;
+  font-size:2.125em;
+  padding:10px;
+}
+
+/* -- Off Cavas Menu -- */
+.navbar-toggle {
+
+  & ~ ul {
+    transition: all @nav-transition-speed @nav-transition-type;
+    transform: translate3d(-100%,0,0);
+    display:block;
+    width:@nav-width;
+    min-width:@nav-min-width;
+    max-width:@nav-max-width;
+    position:absolute;
+    z-index: 1; 
+    top:0;
+    bottom:0;
+    margin:0;
+    padding-top:44px;
+    background:@nav-background-color;
+    box-shadow: inset -10px 0px 5px -5px darken(@nav-background-color, 15%);
+
+    li a {
+      color:contrast(@nav-background-color);
+    }
+  }
+
+  & ~ .navbar-toggle-label {
+    cursor:pointer;
+    font-size:2.125em; /* 34px to enable 44px touch target */
+    line-height:2.75em; /* 44px touch target */
+  }
+
+  &:checked {
+
+    & ~ ul {
+      transform: translate3d(0,0,0);
+    }
+
+    & ~ .navbar-toggle-label:before {
+      position:relative;
+      z-index:2;   
+    }
+  }
+}
+
+/* Devices (768px and up) */
+@media (min-width: @screen-sm-min) {
+  .container {
+    position:relative;
+  }
+  .nav-toggle-label {
+    display:none;
+  }
+  ul.navbar-nav  {
+    display:block;
+  }
+  .navbar-nav > li {
+    float:left;
+  }
+  .nav-toggle ~ ul {
+    transform: translate3d(0,0,0);
+    box-shadow: none;
+    position:static;
+    padding-top:0;
+  }
+}
