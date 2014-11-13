@@ -1,0 +1,12 @@
+# Site settings
+name: Bootstrap Extras
+title: Extras for Bootstrap
+email: stuart@oakcreative.net
+baseurl: /bootstrap-extras
+
+# Build settings
+markdown: redcarpet
+pygments: true
+
+# Permalinks
+permalink:        pretty
