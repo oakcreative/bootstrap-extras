@@ -2,11 +2,7 @@
 name: Bootstrap Extras
 title: Extras for Bootstrap
 email: stuart@oakcreative.net
-<<<<<<< HEAD
 baseurl: /bootstrap-extras
-=======
-baseurl: /bootstrap-extras/
->>>>>>> bb3a1214c7875bf4ed2416c717d75a8773682710
 
 # Build settings
 markdown: redcarpet
