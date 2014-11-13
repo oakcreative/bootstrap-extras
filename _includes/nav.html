@@ -1,0 +1,15 @@
+<!-- master nav -->
+<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="./index.html">Brand</a>
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+        {% for p in site.pages %}
+        <li>
+        	<a {% if p.url == page.url %}class="active"{% endif %} href="{{ site.baseurl }}{{ p.url }}">{{ p.title }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+  </div><!-- /.container-fluid -->
+</nav>
