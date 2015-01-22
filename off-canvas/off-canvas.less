@@ -1,0 +1,136 @@
+/*
+  * Create a Off-Canvas Navigation Drawer for Bootstrap
+  * Mobile First
+  * Uses transforms instead of absolute positioning to avoid Paint Storms
+  * Author  : Jodie Doubleday
+  * Twitter : @jodiedoubleday
+*/
+
+
+/* Variables */
+@nav-transition-type  : ease-in-out;
+@nav-transition-speed : 0.3s;
+@nav-background-color : @header-blue-dark;
+@nav-width            : auto;
+@nav-min-width        : 200px;
+@nav-max-width        : 60%;
+
+/* -- Overwrite Bootstrap Rules -- */
+.navbar {
+  position: static;
+  & > .container {
+    padding:0;
+    position:static;
+  }
+  &.navbar-default ul > li > a {
+    color:@sky-blue;
+  }
+}
+
+.navbar-nav > li {
+  float:none;
+  text-align: left;
+}
+.navbar-nav > li > a {
+  display:block;
+  height:44px;
+  border-bottom:solid 1px darken(@nav-background-color, 10%)
+}
+
+/* -- Non-JS Toggle - See http://css-tricks.com/the-checkbox-hack/ -- */
+.navbar-toggle, ul.navbar-nav {
+  display:none;
+}
+ 
+.navbar-toggle-label {
+  display:block;
+  font-weight:300;
+  float:left;
+  margin:0;
+  font-size:2.125em;
+  padding:10px;
+}
+
+/* -- Off Cavas Menu -- */
+.navbar-toggle {
+
+  & ~ ul {
+    transition: all @nav-transition-speed @nav-transition-type;
+    -webkit-transform: translate3d(-100%,0,0);
+    transform: translate3d(-100%,0,0);
+    display:block;
+    width:@nav-width;
+    min-width:@nav-min-width;
+    max-width:@nav-max-width;
+    position:absolute;
+    z-index: 1; 
+    top:0;
+    bottom:0;
+    margin:0;
+    padding-top:44px;
+    background:@nav-background-color;
+  }
+
+  & ~ .navbar-toggle-label {
+    cursor:pointer;
+    font-size:2.125em; /* 34px to enable 44px touch target */
+    line-height:1em; /* 44px touch target */
+    width:44px;
+    
+    &:before {
+      font-family:FontAwesome;
+      content: '\f0c9';
+    }
+  }
+
+  &:checked {
+
+    & ~ ul {
+      -webkit-transform: translate3d(0,0,0);
+      transform: translate3d(0,0,0);
+    }
+
+    & ~ .navbar-toggle-label:before {
+      font-family:FontAwesome;
+      content: '\f00d';
+      color:contrast(@nav-background-color);
+      position:relative;
+      z-index:2;   
+    }
+  }
+}
+
+/* Devices (768px and up) */
+@media (min-width: 768px) {
+  .container {
+    position:relative;
+  }
+  .navbar-toggle-label {
+    display:none;
+  }
+  .navbar-brand {
+    float:left;
+  }
+  .navbar {
+    ul.navbar-nav  {
+      display:block;
+      background:none;
+      float:right;
+      li {
+        float:left;
+        a {
+          border:none;
+          color:inherit;
+        }
+      }
+    }
+  }
+  .navbar-toggle ~ ul {
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+    box-shadow: none;
+    position:static;
+    padding-top:0;
+    float:left;
+  }
+}
