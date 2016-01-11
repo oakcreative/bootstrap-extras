@@ -1,0 +1,19 @@
+{
+  "name": "bootstrap-extras",
+  "version": "1.0.0",
+  "description": "bootstrap-extras ================",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oakcreative/bootstrap-extras.git"
+  },
+  "author": "Elliott Crush <elliott.crush@holidayextras.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/oakcreative/bootstrap-extras/issues"
+  },
+  "homepage": "https://github.com/oakcreative/bootstrap-extras#readme"
+}
