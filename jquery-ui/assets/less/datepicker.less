@@ -33,7 +33,7 @@
 		// Icons
 		.ui-icon {
 
-			.fa();
+			.fa-icon();
 
 			text-align: center;
 			width: 16px;
@@ -90,7 +90,12 @@
 			padding: 10px 0;
 		}
 
-		a {
+		.ui-state-default {
+			border-width: 0;
+		}
+
+		a,
+		span.ui-state-default {
 
 			display: block;
 			text-align: right;
@@ -123,14 +128,11 @@
 		}
 
 		// States
-		.ui-state-disabled {
-
-			a {
-				color: #777;
-				cursor: default;
-				border-color: #fff;
-			}
-
+		.ui-state-disabled a,
+		span.ui-state-default {
+			color: #777;
+			cursor: default;
+			border-color: #fff;
 		}
 
 	}
